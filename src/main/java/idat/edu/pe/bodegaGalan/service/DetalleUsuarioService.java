@@ -1,12 +1,10 @@
 package idat.edu.pe.bodegaGalan.service;
 
-import idat.edu.pe.bodegaGalan.model.bd.Rol;
 import idat.edu.pe.bodegaGalan.model.bd.Usuario;
 import idat.edu.pe.bodegaGalan.model.security.UsuarioSecurity;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

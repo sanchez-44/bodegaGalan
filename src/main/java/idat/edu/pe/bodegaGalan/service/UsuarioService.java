@@ -1,6 +1,5 @@
 package idat.edu.pe.bodegaGalan.service;
 
-import idat.edu.pe.bodegaGalan.model.bd.Rol;
 import idat.edu.pe.bodegaGalan.model.bd.Usuario;
 import idat.edu.pe.bodegaGalan.repository.RolRepository;
 import idat.edu.pe.bodegaGalan.repository.UsuarioRepository;
