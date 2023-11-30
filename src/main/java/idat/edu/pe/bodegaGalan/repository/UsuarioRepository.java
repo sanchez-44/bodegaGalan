@@ -4,12 +4,12 @@ import idat.edu.pe.bodegaGalan.model.bd.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario,
-        Integer> {
+        Long> {
 
-    Usuario findByEmail(String email);
-
-    Usuario findByNomusuario(String nomusuario);
+    Optional<Usuario> findByUsername(String username);
 
 }
