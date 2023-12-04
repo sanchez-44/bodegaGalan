@@ -1,9 +1,12 @@
 package idat.edu.pe.bodegaGalan.configuration;
 
-import idat.edu.pe.bodegaGalan.service.UsuarioDetailsService;
+import idat.edu.pe.bodegaGalan.service.UsuarioDetailService;
+
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,63 +14,48 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends SecurityConfigurerAdapter {
+@AllArgsConstructor
+public class SecurityConfig {
 
-    private final UsuarioDetailsService usuarioDetailsService;
+private final UsuarioDetailService usuarioDetailService;
 
-    // Inyecta el UsuarioDetailsService en el constructor
-    @Autowired
-    public SecurityConfig(UsuarioDetailsService usuarioDetailsService) {
-        this.usuarioDetailsService = usuarioDetailsService;
+    @Bean
+    public SecurityFilterChain config(HttpSecurity httpSecurity) throws Exception{
+        httpSecurity
+                .authorizeHttpRequests(
+                        auth ->
+                                auth.requestMatchers("/auth/login",
+                                                "/auth/registrar",
+                                                "/auth/guardarusuario",
+                                                "/resources/**",
+                                                "/static/**",
+                                                "/styles/**",
+                                                "/scripts/**").permitAll()
+                                        .anyRequest()
+                                        .authenticated()
+                ).formLogin(
+                        login ->
+                                login.loginPage("/auth/login")
+                                        .defaultSuccessUrl("/auth/login-success")
+                                        .usernameParameter("nomusuario")
+                                        .passwordParameter("password")
+                ).logout(
+                        logout ->
+                                logout.logoutSuccessUrl("/auth/login")
+                                        .invalidateHttpSession(true)
+                ).authenticationProvider(authenticationProvider());
+        return httpSecurity.build();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    private class HttpSecurityConfigurer extends AbstractHttpConfigurer<HttpSecurityConfigurer, HttpSecurity> {
-
-        @Override
-        public void configure(HttpSecurity http) throws Exception {
-            http
-                    .authorizeRequests(authorizeRequests ->
-                            authorizeRequests
-                                    .antMatchers(
-                                            "/auth/login",
-                                            "/auth/registrar",
-                                            "/auth/guardarusuario",
-                                            "/resources/**",
-                                            "/static/**",
-                                            "/styles/**",
-                                            "/scripts/**"
-                                    ).permitAll()
-                                    .anyRequest().authenticated()
-                    )
-                    .formLogin(formLogin ->
-                            formLogin
-                                    .loginPage("/auth/login")
-                                    .defaultSuccessUrl("/auth/login-success")
-                                    .usernameParameter("username")
-                                    .passwordParameter("password")
-                    )
-                    .logout(logout ->
-                            logout
-                                    .logoutSuccessUrl("/auth/login")
-                                    .invalidateHttpSession(true)
-                    )
-                    .authenticationProvider(authenticationProvider());
-        }
-    }
-
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(usuarioDetailsService);
-        provider.setPasswordEncoder(passwordEncoder());
-        return provider;
+    public AuthenticationProvider authenticationProvider(){
+        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+        daoAuthenticationProvider.setUserDetailsService(usuarioDetailService);
+        daoAuthenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder());
+        return daoAuthenticationProvider;
     }
 }

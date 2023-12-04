@@ -24,7 +24,4 @@ public class Empleados {
     @JoinColumn(name = "COD_CARGO", referencedColumnName = "COD_CARGO")
     private Cargo cargo;
 
-    @ManyToOne
-    @JoinColumn(name = "COD_USUARIO", referencedColumnName = "COD_USUARIO")
-    private Usuario usuario;
 }

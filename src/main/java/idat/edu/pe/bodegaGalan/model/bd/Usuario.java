@@ -13,12 +13,12 @@ import java.util.Set;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COD_USUARIO")
-    private Long codigoUsuario;
+    @Column(name = "CODIGO")
+    private Long codigo;
 
-    @Column(name = "USERNAME", unique = true)
+    @Column(name = "USERNAME", unique = true, nullable = false, length = 50)
     private String username;
 
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD", nullable = false, length = 255)
     private String password;
 }
