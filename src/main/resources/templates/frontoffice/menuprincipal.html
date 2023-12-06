@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap">
+    <link rel="icon" type="images/png" href="images/logo_bodega_galan.png">
+    <title>Bodega Galán</title>
+    <link th:href="@{/styles/bootstrap/bootstrap.css}"
+          rel="stylesheet"/>
+    <link th:href="@{/styles/fontawesome/all.css}"
+          rel="stylesheet"/>
+    <script th:src="@{/scripts/bootstrap/bootstrap.bundle.js}"
+            type="text/javascript"></script>
+</head>
+<body>
+    <header>
+        <div class="header__superior">
+            <div class="logo">
+                <!--img th:src="@{/images/logo_bodega_galan.png}" alt="Logo"-->
+                <img src="images/logo_bodega_galan.png" width="50" height="100" alt="Gif" title="Gif" border="0">
+            </div>
+            <div class="search">
+                <input type="search" placeholder="¿Qué deseas buscar?">
+            </div>
+        </div>
+
+        <div class="containner__menu">
+
+            <div class="menu">
+                <input type="checkbox" id="check__menu">
+                <label id="#label__check" for="check__menu">
+                    <i class="fas fa-bars icon__menu"></i>
+                </label>
+                <nav>
+                    <ul>
+                        <li><a href="principal">Principal</a></li>
+                        <li>
+                            <a href="#">Ventas</a>
+                            <ul>
+                                <li><a href="registrarVentas.html">Registrar Venta</a></li>
+                                <li><a href="registrodVentas.html">Registro de Ventas</a></li>
+                                <li><a href="reporteVentas.html">Reporte de Ventas</a></li>
+                                <li><a href="comprobantePago.html">Comprobante de Pago</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Atención al Usuario</a>
+                            <ul>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="registroUsuario.html">Registro de Usuario</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Proveedores</a>
+                            <ul>
+                                <li><a href="registrarProveedores.html">Registrar Proveedores</a></li>
+                                <li><a href="registroProducto.html">Registro de Productos</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="cerrarSesion.html">Cerrar Sesión</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

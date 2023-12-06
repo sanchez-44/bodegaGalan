@@ -48,6 +48,6 @@ public class LoginController {
                 .getAuthentication().getPrincipal();
         UsuarioSecurity usuarioSecurity = (UsuarioSecurity) userDetails;
         session.setAttribute("usuario", usuarioSecurity.getUsername());
-        return "/layout";
+        return "frontoffice/menuprincipal";
     }
 }

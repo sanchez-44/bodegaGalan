@@ -10,7 +10,7 @@ import lombok.Setter;
 @Table(name = "TBL_PRODUCTO")
 public class Producto {
     @Id
-    @Column(name = "CODIGO")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
 
     @Column(name = "NOMBRE", length = 150)
@@ -25,4 +25,8 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "COD_PROVEEDOR", referencedColumnName = "COD_PROVEEDOR")
     private Proveedor proveedor;
+
+    @ManyToOne
+    @JoinColumn(name = "COD_CATEGORIA_P", referencedColumnName = "COD_CATEGORIA_P")
+    private CategoriaProducto categoria;
 }

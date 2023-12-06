@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{layout::head}">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Registrar Producto</title>
 </head>
 <body>
 <script th:src="@{/scripts/web/backoffice/product/frmMantProduct.js}"
@@ -30,19 +30,18 @@
             </thead>
             <tbody>
             <tr th:each="prod :${listaproductos}">
-                <td th:text="${prod.productid}"></td>
-                <td th:text="${prod.productname}"></td>
-                <td th:text="${prod.unitprice}"></td>
-                <td th:text="${prod.category.categoryname}"></td>
-                <td th:text="${prod.supplier.companyname}"></td>
+                <td th:text="${prod.codigo}"></td>
+                <td th:text="${prod.nombre}"></td>
+                <td th:text="${prod.precio}"></td>
+                <td th:text="${prod.cod_categoria_p}"></td>
+                <td th:text="${prod.cod_proveedor}"></td>
                 <td>
                     <button type="button" class="btn btn-info btnactualizar"
-                            th:data-prodcod="${prod.productid}"
-                            th:data-prodname="${prod.productname}"
-                            th:data-produnit="${prod.unitprice}"
-                            th:data-prodcateg="${prod.category.categoryid}"
-                            th:data-prodprov="${prod.supplier.supplierid}"
-                            th:data-descontinuado="${prod.discontinued}"><i class="fas fa-edit"></i></button>
+                            th:data-prodcod="${prod.codigo}"
+                            th:data-prodname="${prod.nombre}"
+                            th:data-produnit="${prod.precio}"
+                            th:data-prodcateg="${prod.cod_categoria_p}"
+                            th:data-prodprov="${prod.cod_proveedor}"><i class="fas fa-edit"></i></button>
                 </td>
             </tr>
             </tbody>
@@ -60,25 +59,21 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="txtnomproducto" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="txtnomproducto">
+                    <input type="text" class="form-control" id="txtnomproducto" th:value="${productoRequest.nombre}">
                 </div>
                 <div class="mb-3">
                     <label for="txtpreciounit" class="form-label">Precio Unitario</label>
-                    <input type="number" class="form-control" id="txtpreciounit">
+                    <input type="number" class="form-control" id="txtpreciounit" th:value="${productoRequest.precio}">
                 </div>
                 <div class="mb-3">
                     <label for="cbocategoria" class="form-label">Categoria</label>
-                    <select id="cbocategoria" class="form-control"></select>
+                    <select id="cbocategoria" class="form-control" th:value="${productoRequest.cod_categoria_p}"></select>
                 </div>
                 <div class="mb-3">
                     <label for="cboproveedor" class="form-label">Proveedor</label>
-                    <select id="cboproveedor" class="form-control"></select>
+                    <select id="cboproveedor" class="form-control" th:value="${productoRequest.cod_proveedor}"></select>
                 </div>
-                <div class="form-check form-switch" id="switchproducto">
-                    <input class="form-check-input" type="checkbox" role="switch" id="chkdescontinuado">
-                    <label class="form-check-label" for="chkdescontinuado">Descontinuado</label>
-                </div>
-                <input type="hidden" id="hddcodprod" value="0">
+                <input type="hidden" id="hddcodprod" th:value="${productoRequest.codigo}">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>

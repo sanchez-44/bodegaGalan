@@ -11,7 +11,6 @@ import lombok.Setter;
 public class DetalleVenta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ITEM")
     private Long item;
 
     @ManyToOne

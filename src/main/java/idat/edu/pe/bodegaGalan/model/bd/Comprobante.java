@@ -13,7 +13,6 @@ import java.util.Date;
 public class Comprobante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CODIGO")
     private Long codigo;
 
     @ManyToOne
@@ -24,7 +23,7 @@ public class Comprobante {
     @JoinColumn(name = "COD_TIPO_PAGO", referencedColumnName = "COD_TIPO_PAGO")
     private TipoPago tipoPago;
 
-    @Column(name = "DESCRIPCION", length = 100)
+    @Column(name = "DESCRIPCION")
     private String descripcion;
 
     @Column(name = "FECHA")
