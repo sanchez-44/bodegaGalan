@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - Bodega Galan</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Preguntas Frecuentes - Bodega Galan</h2>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(1)">1. ¿Cuáles son sus horarios de atención?</div>
+        <div class="faq-answer" id="answer1">
+            <p>Nuestros horarios de atención son de lunes a sábado de 8:00 AM a 8:00 PM.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(2)">2. ¿Ofrecen entrega a domicilio?</div>
+        <div class="faq-answer" id="answer2">
+            <p>Sí, ofrecemos entrega a domicilio en la zona de Villa El Salvador. Puedes realizar tu pedido por teléfono o en persona.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(3)">3. ¿Qué tipos de productos venden?</div>
+        <div class="faq-answer" id="answer3">
+            <p>Vendemos una amplia variedad de productos de abarrotes, incluyendo alimentos, bebidas, productos de limpieza y más.</p>
+        </div>
+    </div>
+
+    <!-- Agrega más preguntas y respuestas según sea necesario -->
+
+    <script>
+        function toggleAnswer(questionNumber) {
+            var answerId = "answer" + questionNumber;
+            var answerElement = document.getElementById(answerId);
+            if (answerElement.style.display === "none") {
+                answerElement.style.display = "block";
+            } else {
+                answerElement.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

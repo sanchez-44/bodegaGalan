@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Ventas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Agrega tus estilos personalizados aquí -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reporte de Ventas</h2>
+    
+    <!-- Tabla de registros de ventas -->
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Código de Producto</th>
+                <th>Nombre del Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Cliente</th>
+                <th>DNI</th>
+                <th>Código de Empleado</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterar sobre los registros de ventas y mostrarlos en la tabla -->
+            <!-- Utiliza Thymeleaf para vincular datos del modelo -->
+            <tr th:each="venta : ${ventas}">
+                <td th:text="${venta.fecha}"></td>
+                <td th:text="${venta.codigoP}"></td>
+                <td th:text="${venta.nProducto}"></td>
+                <td th:text="${venta.cantidad}"></td>
+                <td th:text="${venta.precio}"></td>
+                <td th:text="${venta.cliente}"></td>
+                <td th:text="${venta.dni}"></td>
+                <td th:text="${venta.codigoEmpleado}"></td>
+                <td th:text="${venta.descripcion}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
