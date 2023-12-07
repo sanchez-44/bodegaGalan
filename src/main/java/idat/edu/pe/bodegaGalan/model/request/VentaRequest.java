@@ -6,8 +6,8 @@ import java.util.Date;
 
 @Data
 public class VentaRequest {
-    private Long cod_venta;
-    private Integer cod_empleado;
+    private Integer cod_venta;
+    private Long cod_empleado;
     private Integer dni_cliente;
     private Date fecha;
     private String descripcion;

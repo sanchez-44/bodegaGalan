@@ -5,9 +5,13 @@ import idat.edu.pe.bodegaGalan.model.bd.Proveedor;
 import idat.edu.pe.bodegaGalan.model.request.ProveedoresRequest;
 import idat.edu.pe.bodegaGalan.model.response.ResultadoResponse;
 import idat.edu.pe.bodegaGalan.repository.ProveedorRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class ProveedorService {
     private ProveedorRepository proveedorRepository;
 

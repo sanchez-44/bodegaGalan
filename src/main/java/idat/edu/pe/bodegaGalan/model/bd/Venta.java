@@ -14,7 +14,7 @@ public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "COD_VENTA")
-    private Long codigoVenta;
+    private Integer codigoVenta;
 
     @ManyToOne
     @JoinColumn(name = "COD_EMPLEADO", referencedColumnName = "COD_EMPLEADO")
@@ -26,7 +26,7 @@ public class Venta {
     @Column(name = "FECHA")
     private Date fecha;
 
-    @Column(name = "DESCRIPCION", length = 150)
+    @Column(name = "DESCRIPCION")
     private String descripcion;
 
     @ManyToOne

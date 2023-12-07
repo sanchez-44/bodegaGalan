@@ -1,5 +1,6 @@
 package idat.edu.pe.bodegaGalan.service;
 
+import idat.edu.pe.bodegaGalan.model.bd.Empleados;
 import idat.edu.pe.bodegaGalan.model.bd.Venta;
 import idat.edu.pe.bodegaGalan.model.request.DetalleVentaRequest;
 import idat.edu.pe.bodegaGalan.model.request.VentaRequest;
@@ -24,6 +25,10 @@ public class VentaService {
         try{
             Venta nuevaVenta = new Venta();
             nuevaVenta.setCodigoVenta(venta.getCod_venta());
+            Empleados nuevoEmpleado = new Empleados();
+            nuevoEmpleado.setCodigoEmpleado(venta.getCod_empleado());
+            nuevaVenta.setFecha(venta.getFecha());
+            nuevaVenta.setDescripcion(venta.getDescripcion());
 
         }catch (Exception ex){
 
