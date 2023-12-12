@@ -31,11 +31,11 @@ public class ProductoService {
             producto.setCantidad(productoRequest.getCantidad());
             producto.setPrecio(productoRequest.getPrecio());
             CategoriaProducto categoriaProducto = new CategoriaProducto();
-            categoriaProducto.setCodCategoria(productoRequest.getCod_categoria_p());
+            categoriaProducto.setCod_categoria_p(productoRequest.getCategoria());
             Proveedor proveedor = new Proveedor();
-            proveedor.setCodigoProveedor(productoRequest.getCod_proveedor());
-            producto.setCategoria(categoriaProducto);
-            producto.setProveedor(proveedor);
+            proveedor.setCod_proveedor(productoRequest.getProveedor());
+            producto.setCod_categoria_p(categoriaProducto);
+            producto.setCod_proveedor(proveedor);
             productoRepository.save(producto);
         }catch (Exception ex){
             mensaje = "Producto no registrado";

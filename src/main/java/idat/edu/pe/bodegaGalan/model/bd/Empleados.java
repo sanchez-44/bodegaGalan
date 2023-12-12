@@ -21,7 +21,7 @@ public class Empleados {
     private String apellido;
 
     @ManyToOne
-    @JoinColumn(name = "COD_CARGO", referencedColumnName = "COD_CARGO")
+    @JoinColumn(name = "COD_CARGO")
     private Cargo cargo;
 
 }

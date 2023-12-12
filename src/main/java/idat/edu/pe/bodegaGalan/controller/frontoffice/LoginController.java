@@ -30,6 +30,7 @@ public class LoginController {
     public String registrar() {
         return "frontoffice/auth/frmRegistroUsuario";
     }
+
     @GetMapping("/login-success")
     public String loginSuccess() {
         return "redirect:/auth/dashboard";

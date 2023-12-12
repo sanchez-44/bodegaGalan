@@ -14,6 +14,6 @@ public class TipoPago {
     @Column(name = "COD_TIPO_PAGO")
     private Long codigoTipoPago;
 
-    @Column(name = "NOMBRE", nullable = false)
+    @Column(name = "NOMBRE")
     private String nombre;
 }

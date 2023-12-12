@@ -1,11 +1,13 @@
 package idat.edu.pe.bodegaGalan.model.bd;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "TBL_PRODUCTO")
 public class Producto {
@@ -13,7 +15,7 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
 
-    @Column(name = "NOMBRE", length = 150)
+    @Column(name = "NOMBRE")
     private String nombre;
 
     @Column(name = "CANTIDAD")
@@ -23,10 +25,10 @@ public class Producto {
     private Double precio;
 
     @ManyToOne
-    @JoinColumn(name = "COD_PROVEEDOR", referencedColumnName = "COD_PROVEEDOR")
-    private Proveedor proveedor;
+    @JoinColumn(name = "COD_PROVEEDOR")
+    private Proveedor cod_proveedor;
 
     @ManyToOne
-    @JoinColumn(name = "COD_CATEGORIA_P", referencedColumnName = "COD_CATEGORIA_P")
-    private CategoriaProducto categoria;
+    @JoinColumn(name = "COD_CATEGORIA_P")
+    private CategoriaProducto cod_categoria_p;
 }

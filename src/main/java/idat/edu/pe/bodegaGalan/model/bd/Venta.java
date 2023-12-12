@@ -1,13 +1,13 @@
 package idat.edu.pe.bodegaGalan.model.bd;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "TBL_VENTA")
 public class Venta {
@@ -17,7 +17,7 @@ public class Venta {
     private Integer codigoVenta;
 
     @ManyToOne
-    @JoinColumn(name = "COD_EMPLEADO", referencedColumnName = "COD_EMPLEADO")
+    @JoinColumn(name = "COD_EMPLEADO")
     private Empleados empleado;
 
     @Column(name = "DNI_CLIENTE")
@@ -30,6 +30,6 @@ public class Venta {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "COD_TIPO_PAGO", referencedColumnName = "COD_TIPO_PAGO")
+    @JoinColumn(name = "COD_TIPO_PAGO")
     private TipoPago tipoPago;
 }

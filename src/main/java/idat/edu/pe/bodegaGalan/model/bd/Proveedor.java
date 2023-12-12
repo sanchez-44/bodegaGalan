@@ -1,25 +1,24 @@
 package idat.edu.pe.bodegaGalan.model.bd;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "TBL_PROVEEDOR")
 public class Proveedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COD_PROVEEDOR")
-    private Integer codigoProveedor;
+    private Integer cod_proveedor;
 
-    @Column(name = "NOMBRE", nullable = false, length = 150)
+    @Column(name = "NOMBRE")
     private String nombre;
 
-    @Column(name = "DIRECCION", length = 200)
+    @Column(name = "DIRECCION")
     private String direccion;
 
-    @Column(name = "TELEFONO", length = 20)
+    @Column(name = "TELEFONO")
     private String telefono;
 }

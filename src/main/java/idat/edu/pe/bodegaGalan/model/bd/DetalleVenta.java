@@ -1,11 +1,11 @@
 package idat.edu.pe.bodegaGalan.model.bd;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "TBL_DETALLE_VENTA")
 public class DetalleVenta {
