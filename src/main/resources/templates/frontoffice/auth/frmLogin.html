@@ -41,6 +41,9 @@
                     <label for="password" class="form-label">Password</label>
                     <input maxlength="15" type="password" class="form-control" name="password" id="password">
                 </div>
+                <div th:if="${error}" class="alert alert-danger" role="alert">
+                    <span th:text="${error}"></span>
+                </div>
                 <button type="submit" id="btningresar" class="btn btn-primary">
                     <i class="fas fa-save"></i>
                     INGRESAR
