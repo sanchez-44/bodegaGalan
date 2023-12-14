@@ -20,6 +20,7 @@ public class VentaService {
     private DetalleVentaRepository detalleVentaRepository;
 
 
+    public List<Venta> listarVentas() { return ventaRepository.findAll();}
     @Transactional(propagation = Propagation.REQUIRED)
     public ResultadoResponse registrarVenta(VentaRequest venta, List<DetalleVentaRequest> detalleVentaLista){
         try{
