@@ -32,6 +32,8 @@ private final UsuarioDetailService usuarioDetailService;
                                                 "/auth/registrar",
                                                 "/auth/guardarusuario",
                                                 "/resources/**",
+                                                "/css/**",
+                                                "/img/**",
                                                 "/static/**",
                                                 "/styles/**",
                                                 "/scripts/**").permitAll()

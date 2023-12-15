@@ -74,7 +74,7 @@
                     <label for="cboproveedor" class="form-label">Proveedor</label>
                     <select id="cboproveedor" class="form-control" th:value="${productoRequest.cod_proveedor}"></select>
                 </div>
-                <input type="hidden" id="hddcodprod" th:value="${productoRequest.codigo}">
+                <input type="hidden" id="hddcodprod" th:value="0">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
