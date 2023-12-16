@@ -8,6 +8,6 @@ public class ProductoRequest {
     private String nombre;
     private Integer cantidad;
     private Double precio;
-    private Integer categoria;
-    private Integer proveedor;
+    private Integer codCategoriaP;
+    private Integer codProveedor;
 }

@@ -6,16 +6,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "TBL_CATEGORIA_P")
 public class CategoriaProducto {
     @Id
     @Column(name = "COD_CATEGORIA_P")
-    private int cod_categoria_p;
+    private int codCategoriaP;
 
     @Column(name= "NOMBRE_CATEGORIA")
-    private String nombre_catergoria;
+    private String nombreCategoria;
 }

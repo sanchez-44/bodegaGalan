@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Proveedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer cod_proveedor;
+    private Integer codProveedor;
 
     @Column(name = "NOMBRE")
     private String nombre;

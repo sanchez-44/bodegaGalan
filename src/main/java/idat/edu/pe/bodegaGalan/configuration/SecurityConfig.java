@@ -36,6 +36,7 @@ private final UsuarioDetailService usuarioDetailService;
                                                 "/img/**",
                                                 "/static/**",
                                                 "/styles/**",
+                                                "/templates/**",
                                                 "/scripts/**").permitAll()
                                         .anyRequest()
                                         .authenticated()

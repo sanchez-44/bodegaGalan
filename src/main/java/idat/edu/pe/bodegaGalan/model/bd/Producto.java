@@ -26,9 +26,9 @@ public class Producto {
 
     @ManyToOne
     @JoinColumn(name = "COD_PROVEEDOR")
-    private Proveedor cod_proveedor;
+    private Proveedor proveedor;
 
     @ManyToOne
     @JoinColumn(name = "COD_CATEGORIA_P")
-    private CategoriaProducto cod_categoria_p;
+    private CategoriaProducto categoriaProducto;
 }

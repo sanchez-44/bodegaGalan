@@ -14,9 +14,7 @@ public class UsuarioSecurity extends User {
 
     private String nombres;
 
-    public UsuarioSecurity(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        super(username, password, authorities);
-    }
+
 
     public UsuarioSecurity(String username, String password, boolean enabled) {
         super(username, password, enabled, true, true, true, Collections.emptyList());

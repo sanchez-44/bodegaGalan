@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ProveedoresRequest {
-    private Integer cod_proveedor;
+    private Integer codProveedor;
     private String nombre;
     private String direccion;
     private String telefono;

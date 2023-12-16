@@ -22,8 +22,8 @@ public class ProveedorService {
         Boolean respuesta = true;
         try{
             Proveedor proveedor = new Proveedor();
-            if(proveedoresRequest.getCod_proveedor() > 0){
-                proveedor.setCod_proveedor(proveedoresRequest.getCod_proveedor());
+            if(proveedoresRequest.getCodProveedor() > 0){
+                proveedor.setCodProveedor(proveedoresRequest.getCodProveedor());
             }
             proveedor.setNombre(proveedoresRequest.getNombre());
             proveedor.setDireccion(proveedoresRequest.getDireccion());

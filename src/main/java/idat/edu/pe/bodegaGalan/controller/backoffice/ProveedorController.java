@@ -15,7 +15,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Controller
-@RequestMapping("/backoffice/proveedor")
+@RequestMapping("/backoffice/supplier")
 public class ProveedorController {
     private ProveedorService proveedorService;
 

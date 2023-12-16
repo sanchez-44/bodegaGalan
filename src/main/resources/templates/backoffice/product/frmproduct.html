@@ -23,6 +23,7 @@
             <tr>
                 <th scope="col">Código</th>
                 <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
                 <th scope="col">Precio Unitario</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Proveedor</th>
@@ -33,16 +34,18 @@
             <tr th:each="prod :${listaproductos}">
                 <td th:text="${prod.codigo}"></td>
                 <td th:text="${prod.nombre}"></td>
+                <td th:text="${prod.cantidad}"></td>
                 <td th:text="${prod.precio}"></td>
-                <td th:text="${prod.cod_categoria_p}"></td>
-                <td th:text="${prod.cod_proveedor}"></td>
+                <td th:text="${prod.categoriaProducto.nombreCategoria}"></td>
+                <td th:text="${prod.proveedor.nombre}"></td>
                 <td>
                     <button type="button" class="btn btn-info btnactualizar"
                             th:data-prodcod="${prod.codigo}"
                             th:data-prodname="${prod.nombre}"
+                            th:data-prodcant="${prod.cantidad}"
                             th:data-produnit="${prod.precio}"
-                            th:data-prodcateg="${prod.cod_categoria_p}"
-                            th:data-prodprov="${prod.cod_proveedor}"><i class="fas fa-edit"></i></button>
+                            th:data-prodcateg="${prod.categoriaProducto.codCategoriaP}"
+                            th:data-prodprov="${prod.proveedor.codProveedor}"><i class="fas fa-edit"></i></button>
                 </td>
             </tr>
             </tbody>
@@ -60,21 +63,25 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="txtnomproducto" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="txtnomproducto" th:value="${productoRequest.nombre}">
+                    <input type="text" class="form-control" id="txtnomproducto">
+                </div>
+                <div class="mb-3">
+                    <label for="txtcantidad" class="form-label">Cantidad</label>
+                    <input type="number" class="form-control" id="txtcantidad">
                 </div>
                 <div class="mb-3">
                     <label for="txtpreciounit" class="form-label">Precio Unitario</label>
-                    <input type="number" class="form-control" id="txtpreciounit" th:value="${productoRequest.precio}">
+                    <input type="number" class="form-control" id="txtpreciounit">
                 </div>
                 <div class="mb-3">
                     <label for="cbocategoria" class="form-label">Categoria</label>
-                    <select id="cbocategoria" class="form-control" th:value="${productoRequest.cod_categoria_p}"></select>
+                    <select id="cbocategoria" class="form-control"></select>
                 </div>
                 <div class="mb-3">
                     <label for="cboproveedor" class="form-label">Proveedor</label>
-                    <select id="cboproveedor" class="form-control" th:value="${productoRequest.cod_proveedor}"></select>
+                    <select id="cboproveedor" class="form-control"></select>
                 </div>
-                <input type="hidden" id="hddcodprod" th:value="0">
+                <input type="hidden" id="hddcodprod" value="0">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
