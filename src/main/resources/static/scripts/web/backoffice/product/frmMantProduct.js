@@ -108,3 +108,67 @@ function listarProductos(){
         }
     })
 }
+
+
+$(document).ready(function () {
+    var currentDate = new Date();
+    var formattedDate = currentDate.toISOString().split('T')[0];
+
+    $('#txtfecha').val(formattedDate);
+});
+
+function agregarFilaTabla(fecha, codigoProducto, cantidad, dni, descripcion) {
+    var tbody = $('#tblDetalle tbody');
+    var nuevaFila = $('<tr>');
+
+    $('<td>').text(fecha).appendTo(nuevaFila);
+    $('<td>').text(codigoProducto).appendTo(nuevaFila);
+    $('<td>').text(cantidad).appendTo(nuevaFila);
+    $('<td>').text(dni).appendTo(nuevaFila);
+    $('<td>').text(descripcion).appendTo(nuevaFila);
+
+    tbody.append(nuevaFila);
+}
+
+function limpiarCasillas() {
+    $('#txtcodigoproducto').val('');
+    $('#txtcantidad').val('');
+    $('#txtdni').val('');
+    $('#txtdescripcion').val('');
+}
+
+$(document).on("click", "#btningresar", function(){
+    var fecha = $('#txtfecha').val();
+    var codigoProducto = $('#txtcodigoproducto').val();
+    var cantidad = $('#txtcantidad').val();
+    var dni = $('#txtdni').val();
+    var descripcion = $('#txtdescripcion').val();
+
+    agregarFilaTabla(fecha, codigoProducto, cantidad, dni, descripcion);
+    limpiarCasillas();
+});
+
+$(document).on("click", "#btnlimpiar", function() {
+    limpiarCasillas();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,7 @@ import java.util.List;
 public class VentaRegistroController {
     private VentaRegistroService ventaRegistroService;
 
+
     @GetMapping("/registroVentas")
     public String frmMantVenta(Model model){
         model.addAttribute("listaventas",

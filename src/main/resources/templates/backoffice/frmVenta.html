@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout::head}">
+    <meta charset="UTF-8">
+    <title>Registrar Venta</title>
+</head>
+<body>
+<script th:src="@{/scripts/web/backoffice/product/frmMantProduct.js}"
+        type="text/javascript"></script>
+<nav th:replace="~{layout::menu}"></nav>
+<div class="card">
+    <div class="card-header text-bg-dark mb-3">
+        Registro de Ventas
+    </div>
+
+<div class="mb-3">
+    <label for="txtfecha" class="form-label">Fecha</label>
+    <input type="date" class="form-control" id="txtfecha">
+</div>
+<div class="mb-3">
+    <label for="txtcodigoproducto" class="form-label">Código de Producto</label>
+    <input type="text" class="form-control" id="txtcodigoproducto">
+</div>
+<div class="mb-3">
+    <label for="txtcantidad" class="form-label">Cantidad</label>
+    <input type="text" class="form-control" id="txtcantidad">
+</div>
+<div class="mb-3">
+    <label for="txtdni" class="form-label">DNI</label>
+    <input type="text" class="form-control" id="txtdni">
+</div>
+<div class="mb-3">
+    <label for="txtdescripcion" class="form-label">Descripción</label>
+    <input type="text" class="form-control" id="txtdescripcion">
+</div>
+<div class="d-flex justify-content-end mb-3">
+    <button type="button" id="btningresar" class="btn btn-primary me-2">
+        <i class="fas fa-save"></i> Ingresar
+    </button>
+    <button type="button" id="btnlimpiar" class="btn btn-secondary">
+        <i class="fas fa-times"></i> Limpiar
+    </button>
+</div>
+
+<table class="table table-bordered" id="tblDetalle">
+    <thead>
+    <tr>
+        <th>Fecha</th>
+        <th>Código de Producto</th>
+        <th>Nombre de Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>DNI</th>
+        <th>Código de Empleado</th>
+        <th>Descripción</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Contenido de la tabla -->
+    </tbody>
+</table>
+
+<!-- Ahora la sección de botones en el pie de página -->
+<div class="modal-footer">
+    <button type="button" id="btnregistrar" class="btn btn-primary">
+        <i class="fas fa-save"></i> Registrar
+    </button>
+    <button type="button" id="btngenerarcomprobante" class="btn btn-success">
+        <i class="fas fa-receipt"></i> Generar Comprobante
+    </button>
+    <button type="button" id="btneliminar" class="btn btn-danger">
+        <i class="fas fa-trash-alt"></i> Eliminar
+    </button>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <i class="fas fa-times"></i> Cancelar
+    </button>
+</div>
+</div>
+</body>
+</html>

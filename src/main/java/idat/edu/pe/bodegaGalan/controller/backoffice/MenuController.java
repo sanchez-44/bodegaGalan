@@ -53,7 +53,7 @@ public class MenuController {
 
     @GetMapping("/ventasMenu")
     public String ventas() {
-        return "backoffice/frmventas";
+        return "backoffice/frmventa";
     }
     @GetMapping("/registroVentas")
     public String registroVentas() {
