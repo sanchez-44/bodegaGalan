@@ -3,10 +3,12 @@ package idat.edu.pe.bodegaGalan.model.bd;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "TBL_COMPROBANTE")

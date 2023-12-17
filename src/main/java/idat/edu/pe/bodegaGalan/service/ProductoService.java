@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -43,4 +44,8 @@ public class ProductoService {
         }
             return ResultadoResponse.builder().mensaje(mensaje).respuesta(respuesta).build();
         }
+
+    public Optional<Producto> obtenerProductoPorCodigo(Integer codigo) {
+        return productoRepository.findById(codigo);
+    }
     }

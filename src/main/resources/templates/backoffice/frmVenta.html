@@ -15,24 +15,40 @@
 
 <div class="mb-3">
     <label for="txtfecha" class="form-label">Fecha</label>
-    <input type="date" class="form-control" id="txtfecha">
+    <input type="date" class="form-control" id="txtfecha" style="background-color: #D8D8D8;" readonly>
 </div>
 <div class="mb-3">
     <label for="txtcodigoproducto" class="form-label">Código de Producto</label>
     <input type="text" class="form-control" id="txtcodigoproducto">
 </div>
 <div class="mb-3">
+    <label for="txtnombreProducto" class="form-label">Nombre de Producto (Automático)</label>
+    <input type="text" class="form-control" id="txtnombreProducto" style="background-color: #D8D8D8;" readonly>
+</div>
+<div class="mb-3">
     <label for="txtcantidad" class="form-label">Cantidad</label>
     <input type="text" class="form-control" id="txtcantidad">
 </div>
+    <div class="mb-3">
+        <label for="txtprecio" class="form-label">Precio (Automático)</label>
+        <input type="text" class="form-control" id="txtprecio" style="background-color: #D8D8D8;" readonly>
+    </div>
 <div class="mb-3">
     <label for="txtdni" class="form-label">DNI</label>
     <input type="text" class="form-control" id="txtdni">
+</div>
+
+<div class="mb-3">
+    <label for="txtcodigoEmpleado" class="form-label">Codigo de Empleado</label>
+    <input type="text" class="form-control" id="txtcodigoEmpleado">
 </div>
 <div class="mb-3">
     <label for="txtdescripcion" class="form-label">Descripción</label>
     <input type="text" class="form-control" id="txtdescripcion">
 </div>
+    <label for="selTiposPago">Selecciona Tipo de Pago:</label>
+    <select id="selTiposPago" class="form-control"></select>
+
 <div class="d-flex justify-content-end mb-3">
     <button type="button" id="btningresar" class="btn btn-primary me-2">
         <i class="fas fa-save"></i> Ingresar
@@ -40,6 +56,11 @@
     <button type="button" id="btnlimpiar" class="btn btn-secondary">
         <i class="fas fa-times"></i> Limpiar
     </button>
+</div>
+
+
+<div id="mensajeError" class="alert alert-danger" role="alert" style="display: none;">
+    <span id="errorText"></span>
 </div>
 
 <table class="table table-bordered" id="tblDetalle">
@@ -53,6 +74,8 @@
         <th>DNI</th>
         <th>Código de Empleado</th>
         <th>Descripción</th>
+        <th>Tipo pago</th>
+
     </tr>
     </thead>
     <tbody>
@@ -68,10 +91,10 @@
     <button type="button" id="btngenerarcomprobante" class="btn btn-success">
         <i class="fas fa-receipt"></i> Generar Comprobante
     </button>
-    <button type="button" id="btneliminar" class="btn btn-danger">
-        <i class="fas fa-trash-alt"></i> Eliminar
+    <button type="button" id="btneliminarTabla" class="btn btn-danger">
+        <i class="fas fa-trash-alt"></i> Eliminar Tabla
     </button>
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+    <button type="button" id="btncancelarVenta"class="btn btn-secondary" data-bs-dismiss="modal">
         <i class="fas fa-times"></i> Cancelar
     </button>
 </div>

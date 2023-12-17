@@ -5,11 +5,14 @@ import idat.edu.pe.bodegaGalan.model.request.ProductoRequest;
 import idat.edu.pe.bodegaGalan.model.response.ResultadoResponse;
 import idat.edu.pe.bodegaGalan.service.ProductoService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Controller
@@ -34,5 +37,18 @@ public class ProductoController {
     @ResponseBody
     public ResultadoResponse guardarProducto(@RequestBody ProductoRequest productRequest){
         return productoService.guardarProducto(productRequest);
+    }
+
+    @GetMapping("/buscar/{codigo}")
+    @ResponseBody
+    public ResponseEntity<Producto> buscarProductoPorCodigo(@PathVariable Integer codigo) {
+        Optional<Producto> productoOptional = productoService.obtenerProductoPorCodigo(codigo);
+
+        if (productoOptional.isPresent()) {
+            Producto producto = productoOptional.get();
+            return new ResponseEntity<>(producto, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
