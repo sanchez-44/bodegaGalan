@@ -11,7 +11,6 @@ $(document).on("click", ".btnactualizar", function(){
     $("#txtnomproducto").val($(this).attr("data-prodname"));
     $("#txtcantidad").val($(this).attr("data-prodcant"));
     $("#txtpreciounit").val($(this).attr("data-produnit"));
-    $("#hddcodprod").val($(this).attr("data-prodcod"));
     $("#modalNuevo").modal("show");
 });
 
@@ -21,7 +20,6 @@ $(document).on("click", "#btnguardar", function(){
         url: "/backoffice/product/guardar",
         contentType: "application/json",
         data: JSON.stringify({
-            codigo: $("#hddcodprod").val(),
             nombre: $("#txtnomproducto").val(),
             precio: $("#txtpreciounit").val(),
             categoriaProducto: {

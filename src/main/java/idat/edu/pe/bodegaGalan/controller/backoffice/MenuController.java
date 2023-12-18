@@ -23,7 +23,7 @@ public class MenuController {
 
     @GetMapping("/registrarProveedores")
     public String registrarProveedores(){
-        return  "backoffice/product/frmproveedor";
+        return  "backoffice/proveedor/frmproveedor";
     }
 
     @GetMapping("/registroProducto")
