@@ -5,7 +5,7 @@
     <title>Registrar Venta</title>
 </head>
 <body>
-<script th:src="@{/scripts/web/backoffice/product/frmMantProduct.js}"
+<script th:src="@{/scripts/web/backoffice/frmMantVenta.js}"
         type="text/javascript"></script>
 <nav th:replace="~{layout::menu}"></nav>
 <div class="card">
@@ -75,15 +75,12 @@
         <th>Código de Empleado</th>
         <th>Descripción</th>
         <th>Tipo pago</th>
-
     </tr>
     </thead>
-    <tbody>
-    <!-- Contenido de la tabla -->
-    </tbody>
+
 </table>
 
-<!-- Ahora la sección de botones en el pie de página -->
+
 <div class="modal-footer">
     <button type="button" id="btnregistrar" class="btn btn-primary">
         <i class="fas fa-save"></i> Registrar

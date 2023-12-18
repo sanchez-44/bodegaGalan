@@ -12,7 +12,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Controller
-@RequestMapping("/backoffice/category")
+@RequestMapping("/backoffice/categoria")
 public class CategoriaController {
     private CategoriaService categoriaService;
 

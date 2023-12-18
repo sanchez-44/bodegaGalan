@@ -12,12 +12,9 @@ public class VentaRequest {
     private String descripcion;
     private Integer codProducto;
     private Integer cantidad;
-    private Double precio;  // Asegúrate de enviar el precio si es necesario en el backend
-    private Integer codigoTipoPago;  // Agrega este campo
+    private Double precio;
+    private Integer codigoTipoPago;
 
-    // Getters y setters
-
-    // Constructor
     public VentaRequest(Integer codEmpleado, Integer dniCliente, Date fecha, String descripcion,
                         Integer codProducto, Integer cantidad, Double precio, Integer codigoTipoPago) {
         this.codEmpleado = codEmpleado;

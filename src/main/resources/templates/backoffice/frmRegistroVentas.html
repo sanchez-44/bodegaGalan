@@ -5,12 +5,35 @@
     <title>Lista de Ventas</title>
 </head>
 <body>
-<script th:src="@{/scripts/web/backoffice/product/frmMantProduct.js}" type="text/javascript"></script>
+<script th:src="@{/scripts/web/backoffice/frmVentaRegistro.js}" type="text/javascript"></script>
+
+
 
 <nav th:replace="~{layout::menu}"></nav>
 <div class="card">
     <div class="card-header text-bg-dark mb-3">
         Lista de Ventas
+    </div>
+    <div class="card">
+        <div class="card-header text-bg-dark mb-3">
+            Filtros de Búsqueda
+        </div>
+        <div class="card-body">
+            <form id="formBusqueda">
+                <div class="form-group">
+                    <label for="codigoVenta">Código de Venta:</label>
+                    <input type="text" class="form-control" id="codigoVenta" name="codigoVenta">
+                </div>
+                <div class="form-group">
+                    <label for="dniCliente">DNI del Cliente:</label>
+                    <input type="text" class="form-control" id="dniCliente" name="dniCliente">
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="buscarVentas()">Buscar</button>
+                <button type="button" class="btn btn-primary" id="btnResetTabla" onclick="listarTodasLasVentas()">Resetear Tabla</button>
+
+            </form>
+        </div>
     </div>
     <div class="card-body">
         <div id="mensaje"></div>
@@ -28,11 +51,11 @@
             <tbody>
             <tr th:each="venta : ${listaventas}">
                 <td th:text="${venta.codigoVenta}"></td>
-                <td th:text="${venta.empleado}"></td>
+                <td th:text="${venta.codigoEmpleado.codigoEmpleado}"></td>
                 <td th:text="${venta.dniCliente}"></td>
                 <td th:text="${venta.fecha}"></td>
                 <td th:text="${venta.descripcion}"></td>
-                <td th:text="${venta.tipoPago}"></td>
+                <td th:text="${venta.tipoPago.codigoTipoPago}"></td>
             </tr>
             </tbody>
         </table>

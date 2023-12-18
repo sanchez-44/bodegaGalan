@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -18,10 +20,12 @@ public class VentaRegistroController {
     private VentaRegistroService ventaRegistroService;
 
 
-    @GetMapping("/registroVentas")
+    @GetMapping("/frmMantRegistroVenta")
     public String frmMantVenta(Model model){
-        model.addAttribute("listaventas",
-                ventaRegistroService.listarVentas());
+        List<Venta> listaVentas = ventaRegistroService.listarVentas();
+        System.out.println("Número de ventas: " + listaVentas.size());
+
+        model.addAttribute("listaventas", listaVentas);
         return "backoffice/frmRegistroVentas";
     }
 
@@ -30,5 +34,13 @@ public class VentaRegistroController {
     public List<Venta> listarVentas(){
         return ventaRegistroService.listarVentas();
     }
+
+    @GetMapping("/buscar")
+    @ResponseBody
+    public List<Venta> buscarVentas(@RequestParam(required = false) Integer codigoVenta,
+                                    @RequestParam(required = false) Integer dniCliente) {
+        return ventaRegistroService.buscarVentas(codigoVenta, dniCliente);
+    }
+
 
 }
