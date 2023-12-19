@@ -80,6 +80,7 @@ function agregarFilaTabla(fecha, codigoProducto, nombreProducto, cantidad, monto
         $('<td>').html('<button class="btnEliminarFila">Eliminar</button>').appendTo(nuevaFila);
 
         tbody.append(nuevaFila);
+
     }
 }
 
@@ -145,7 +146,6 @@ $(document).on("click", "#btneliminarTabla", function() {
 $(document).on("click", "#btncancelarVenta", function() {
     $('#tblDetalle tbody').empty();
 
-    $('#txtfecha').val('');
     $('#txtcodigoproducto').val('');
     $('#txtnombreProducto').val('');
     $('#txtcantidad').val('');
@@ -208,19 +208,60 @@ $(document).on("click", "#btnregistrar", function() {
 });
 
 
+function obtenerDatosTabla2() {
+    var datosTabla = [];
+
+    $('#tblDetalle tbody tr').each(function () {
+        var fila = $(this);
+        var nombreProducto = fila.find('td:eq(2)').text();
+        var precio = fila.find('td:eq(4)').text();
+
+        var datosFila = {
+            nombreProducto: nombreProducto,
+            precio: precio
+        };
+
+        datosTabla.push(datosFila);
+    });
+
+    return datosTabla;
+}
 
 
 
+$(document).on('click', "#btnGenerarComprobante", function () {
+
+    var detalleComprobante = obtenerDatosTabla2();
+
+    $('#fechaActual').text(new Date().toISOString().split('T')[0]);
+    $('#productos').text(obtenerDetalleComprobanteTexto(detalleComprobante));
+    $('#dni').text('');
+    $('#igv').text('');
+    $('#subtotal').text('');
+    $('#total').text('');
+
+    $('#comprobanteModal').modal('show');
+});
+
+function obtenerDetalleComprobanteTexto(detalleComprobante) {
+    var tbody = $('#productosTableBody');
+    tbody.empty();
+
+    detalleComprobante.forEach(function (detalle) {
+        var fila = '<tr><td>' + detalle.nombreProducto + '</td><td>' + detalle.precio + '</td></tr>';
+        tbody.append(fila);
+    });
+}
 
 
+$(document).on('click', "#btnImprimir", function () {
+    var contenidoPopUp = $('#comprobanteModal .modal-body').html();
 
+    var ventanaImpresion = window.open('', '_blank');
+    ventanaImpresion.document.write('<html><head><title>Comprobante de Pago</title></head><body>');
+    ventanaImpresion.document.write(contenidoPopUp);
+    ventanaImpresion.document.write('</body></html>');
 
-
-
-
-
-
-
-
-
-
+    ventanaImpresion.print();
+    ventanaImpresion.document.close();
+});

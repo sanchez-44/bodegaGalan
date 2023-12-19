@@ -42,5 +42,8 @@ public class VentaRegistroController {
         return ventaRegistroService.buscarVentas(codigoVenta, dniCliente);
     }
 
-
+    @GetMapping("/principal")
+    public String mostrarMenuPrincipal(Model model) {
+        return "frontoffice/menuprincipal";
+    }
 }

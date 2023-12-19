@@ -36,4 +36,8 @@ public class ProveedorController {
     public ResultadoResponse guardarProveedores(@RequestBody ProveedoresRequest proveedoresRequest){
         return proveedorService.guardarProveedor(proveedoresRequest);
     }
+    @GetMapping("/principal")
+    public String mostrarMenuPrincipal(Model model) {
+        return "frontoffice/menuprincipal";
+    }
 }

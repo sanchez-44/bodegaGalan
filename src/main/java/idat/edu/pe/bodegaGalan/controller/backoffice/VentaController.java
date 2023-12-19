@@ -32,5 +32,8 @@ public class VentaController {
 
         return resultadoResponse;
     }
-
+    @GetMapping("/principal")
+    public String mostrarMenuPrincipal(Model model) {
+        return "frontoffice/menuprincipal";
+    }
 }

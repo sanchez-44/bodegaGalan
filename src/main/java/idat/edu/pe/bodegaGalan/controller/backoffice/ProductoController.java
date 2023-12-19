@@ -51,4 +51,8 @@ public class ProductoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/principal")
+    public String mostrarMenuPrincipal(Model model) {
+        return "frontoffice/menuprincipal";
+    }
 }
