@@ -1,33 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/nosotrosstyle.css}"
+          rel="stylesheet"/>
     <title>Bodega Galán</title>
-    <style>
-        /* Add your styles here */
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        header{
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-        }
-        footer {
-        text-align: center;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: #d8caca;
-        padding: 10px 0;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -37,16 +15,24 @@
 
     <section class="container">
         <h2>Nosotros</h2>
-        <p>Bodega Galán es un negocio comprometido con la calidad y eficiencia en el manejo de productos. Nuestra bodega se especializa en ofrecer soluciones integrales para almacenamiento y distribución. Con años de experiencia en el mercado, nos esforzamos por brindar un servicio excepcional a nuestros clientes y socios comerciales.</p>
+        <p>Bodega Galán es una empresa líder en el sector de almacenamiento y distribución, comprometida con la excelencia y la satisfacción del cliente. Nuestra misión es proporcionar soluciones integrales que optimicen la cadena de suministro y superen las expectativas de nuestros clientes.</p>
+    
+        <p>Con más de dos décadas de experiencia, hemos construido una reputación sólida basada en la confiabilidad y la eficiencia. Nos enorgullece ofrecer servicios logísticos de vanguardia, abarcando desde el almacenamiento seguro hasta la entrega puntual de productos en todo el país.</p>
+    
+        <p>Nuestro equipo está compuesto por profesionales apasionados que trabajan de la mano con nuestros clientes y socios comerciales para entender sus necesidades específicas. Colaboramos estrechamente con proveedores confiables y utilizamos tecnologías innovadoras para garantizar la gestión eficiente del inventario y una logística sin contratiempos.</p>
+    
+        <p>En Bodega Galán, nos esforzamos por mantener altos estándares de calidad en todos los aspectos de nuestro negocio. Desde la selección de productos hasta la entrega final, cada paso se realiza con precisión y atención al detalle. Esto nos ha permitido establecer relaciones duraderas con clientes satisfechos y socios estratégicos.</p>
+    
+        <p>La visión de Bodega Galán es continuar siendo un referente en la industria, anticipando y adaptándonos a las tendencias del mercado. Buscamos constantemente mejorar nuestros procesos y servicios para ofrecer soluciones logísticas eficientes y personalizadas.</p>
+    
+        <p>Gracias por elegir Bodega Galán como su socio logístico. Estamos comprometidos con su éxito y esperamos seguir siendo su elección preferida en almacenamiento y distribución.</p>
 
-        <p>Nuestro equipo está dedicado a garantizar la satisfacción del cliente, proporcionando productos de alta calidad y cumpliendo con los estándares más exigentes en logística y gestión de inventario. Trabajamos de cerca con proveedores confiables y colaboramos estrechamente con clientes para asegurar una cadena de suministro eficiente y efectiva.</p>
-
-        <p>En Bodega Galán, nos enorgullece ser un pilar fundamental en la cadena de distribución, facilitando el flujo constante de productos desde los proveedores hasta los consumidores finales. Nuestra visión es seguir creciendo y mejorando, adaptándonos a las necesidades cambiantes del mercado y manteniendo nuestro compromiso con la excelencia en el servicio.</p>
+        <a th:href="@{/backoffice/proveedor/principal}" class="btn btn-primary">Volver al Menú Principal</a>
     </section>
+
 
     <footer>
         <p>&copy; 2023 Bodega Galán. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
-

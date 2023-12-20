@@ -36,6 +36,8 @@ private final UsuarioDetailService usuarioDetailService;
                                                 "/backoffice/proveedor/guardar",
                                                 "/backoffice/ventas/registrarVenta",
                                                 "/backoffice/registroVentas",
+                                                "/backoffice/faq",
+                                                "/backoffice/nosotros",
                                                 "/controller/**",
                                                 "/css/**",
                                                 "/img/**",

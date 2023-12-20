@@ -1,55 +1,91 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/stylesFaq.css}"
+          rel="stylesheet"/>
     <title>Preguntas Frecuentes - Bodega Galan</title>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h2 {
-            color: #4CAF50;
-        }
-        .faq-item {
-            margin-bottom: 20px;
-        }
-        .faq-question {
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .faq-answer {
-            display: none;
-            margin-top: 10px;
-        }
-    </style>
+    
 </head>
 <body>
-    <h2>Preguntas Frecuentes - Bodega Galan</h2>
+    <h1>Guia del Usuario - Bodega Galan</h1>
+    <div class="faq-container">
 
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleAnswer(1)">1. ¿Cuáles son sus horarios de atención?</div>
-        <div class="faq-answer" id="answer1">
-            <p>Nuestros horarios de atención son de lunes a sábado de 8:00 AM a 8:00 PM.</p>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(1)"> 1. Registrar Venta</div>          
+            <div class="faq-answer" id="answer1">
+                <p>Esta opción te llevará a una página donde puedes registrar una nueva venta.
+                    Podrás ingresar detalles como el cliente, los productos vendidos, la cantidad, etc.
+                    La información ingresada se almacenará en la base de datos para su posterior procesamiento.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleAnswer(2)">2. ¿Ofrecen entrega a domicilio?</div>
-        <div class="faq-answer" id="answer2">
-            <p>Sí, ofrecemos entrega a domicilio en la zona de Villa El Salvador. Puedes realizar tu pedido por teléfono o en persona.</p>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(2)">2. Registro de Ventas</div>
+            <div class="faq-answer" id="answer2">
+                <p>Al seleccionar esta opción, accederás a una página que muestra un historial o lista de todas las ventas realizadas.
+                    Puedes ver información detallada sobre cada venta, como fecha, cliente, productos comprados, etc.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleAnswer(3)">3. ¿Qué tipos de productos venden?</div>
-        <div class="faq-answer" id="answer3">
-            <p>Vendemos una amplia variedad de productos de abarrotes, incluyendo alimentos, bebidas, productos de limpieza y más.</p>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(3)">3. Comprobante de Pago</div>
+            <div class="faq-answer" id="answer3">
+                <p>Al hacer clic en esta opción, podrás generar un comprobante de pago para una venta específica.
+                    El comprobante puede incluir detalles como el total de la venta, los productos comprados y otros detalles relevantes.</p>
+            </div>
         </div>
-    </div>
 
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(4)">4. FAQ (Preguntas Frecuentes)</div>
+            <div class="faq-answer" id="answer4">
+                <p>Acceder a esta sección te permitirá encontrar respuestas a preguntas frecuentes sobre el funcionamiento de la tienda en línea.
+                    Las preguntas y respuestas suelen abordar temas como el proceso de compra, políticas de devolución, etc.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(5)">5. Registro de Usuario</div>
+            <div class="faq-answer" id="answer5">
+                <p>Al seleccionar esta opción, podrás acceder a un formulario para registrar nuevos usuarios.
+                    Los usuarios pueden proporcionar información como nombre, dirección, correo electrónico, etc., para crear una cuenta en la tienda.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(6)">6. Registrar Proveedores</div>
+            <div class="faq-answer" id="answer6">
+                <p>Esta opción te llevará a una página donde puedes registrar nuevos proveedores para los productos de la tienda.
+                    Puedes ingresar detalles como el nombre del proveedor, información de contacto, etc.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(7)">7. Registro de Productos</div>
+            <div class="faq-answer" id="answer7">
+                <p>Al seleccionar esta opción, podrás agregar nuevos productos al inventario de la tienda.
+                    Puedes ingresar detalles como nombre del producto, precio, cantidad disponible, etc.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(8)">8. Nosotros</div>
+            <div class="faq-answer" id="answer8">
+                <p>Al hacer clic en esta opción, podrás acceder a información sobre la empresa, 
+                    su historia, valores y cualquier otra información relevante.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(9)">9. Cerrar Sesión</div>
+            <div class="faq-answer" id="answer9">
+                <p>Al seleccionar esta opción, se cerrará la sesión actual del usuario.</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a th:href="@{/backoffice/proveedor/principal}" class="btn btn-primary">Menú Principal</a>
+        </div>
     <!-- Agrega más preguntas y respuestas según sea necesario -->
 
     <script>
@@ -63,5 +99,6 @@
             }
         }
     </script>
+    </div>
 </body>
 </html>

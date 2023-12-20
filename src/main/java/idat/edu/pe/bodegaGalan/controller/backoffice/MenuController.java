@@ -31,10 +31,10 @@ public class MenuController {
         return "backoffice/product/frmproducto";
     }
 
-    @GetMapping("/faq")
+    @GetMapping("/backoffice/menu/faq")
     public String faq() {return "backoffice/faq";}
 
-    @GetMapping("/nosotros")
+    @GetMapping("/backoffice/menu/nosotros")
     public String nosotros() {return "backoffice/nosotros";}
 
     @PostMapping("/guardarusuario")
